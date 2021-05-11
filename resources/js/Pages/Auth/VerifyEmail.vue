@@ -1,56 +1,78 @@
 <template>
-    <div class="mb-4 text-sm text-gray-600">
-        Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.
+  <article class="message">
+    <div class="message-body">
+      ¡Gracias por registrarse! Antes de comenzar, ¿podría verificar su
+      dirección de correo electrónico haciendo clic en el enlace que le acabamos
+      de enviar?
+      <em>Si no recibió el correo electrónico, con gusto le enviaremos otro</em
+      >.
     </div>
+  </article>
 
-    <div class="mb-4 font-medium text-sm text-green-600" v-if="verificationLinkSent" >
-        A new verification link has been sent to the email address you provided during registration.
+  <div class="notification is-success" v-if="verificationLinkSent">
+    Se ha enviado un nuevo enlace de verificación
+    <strong
+      >a la dirección de correo electrónico que proporcionó durante el
+      registro</strong
+    >.
+  </div>
+
+  <form @submit.prevent="submit">
+    <div class="field is-flex is-justify-content-space-between">
+      <div class="control">
+        <breeze-button
+          class="is-info"
+          :class="{ 'is-loading': form.processing }"
+          :disabled="form.processing"
+        >
+          Renviar Correo de Verificación
+        </breeze-button>
+
+        <inertia-link
+          :href="route('logout')"
+          method="post"
+          as="button"
+          class="underline text-sm text-gray-600 hover:text-gray-900"
+          >Cerrar Sesión</inertia-link
+        >
+      </div>
     </div>
-
-    <form @submit.prevent="submit">
-        <div class="mt-4 flex items-center justify-between">
-            <breeze-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Resend Verification Email
-            </breeze-button>
-
-            <inertia-link :href="route('logout')" method="post" as="button" class="underline text-sm text-gray-600 hover:text-gray-900">Log Out</inertia-link>
-        </div>
-    </form>
+  </form>
 </template>
 
 <script>
-    import BreezeButton from '@/Components/Button'
-    import BreezeGuestLayout from "@/Layouts/Guest"
+import BreezeButton from "@/Components/Button";
+import BreezeGuestLayout from "@/Layouts/Guest";
 
-    export default {
-        layout: BreezeGuestLayout,
+export default {
+  layout: BreezeGuestLayout,
 
-        components: {
-            BreezeButton,
-        },
+  components: {
+    BreezeButton,
+  },
 
-        props: {
-            auth: Object,
-            errors: Object,
-            status: String,
-        },
+  props: {
+    auth: Object,
+    errors: Object,
+    status: String,
+  },
 
-        data() {
-            return {
-                form: this.$inertia.form()
-            }
-        },
+  data() {
+    return {
+      form: this.$inertia.form(),
+    };
+  },
 
-        methods: {
-            submit() {
-                this.form.post(this.route('verification.send'))
-            },
-        },
+  methods: {
+    submit() {
+      this.form.post(this.route("verification.send"));
+    },
+  },
 
-        computed: {
-            verificationLinkSent() {
-                return this.status === 'verification-link-sent';
-            }
-        }
-    }
+  computed: {
+    verificationLinkSent() {
+      return this.status === "verification-link-sent";
+    },
+  },
+};
 </script>

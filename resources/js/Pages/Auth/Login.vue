@@ -1,87 +1,140 @@
 <template>
-    <breeze-validation-errors class="mb-4" />
+  <breeze-validation-errors />
 
-    <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-        {{ status }}
+  <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+    {{ status }}
+  </div>
+
+  <form @submit.prevent="submit" novalidate>
+    <div class="field">
+      <breeze-label for="email" value="Correo Electrónico" />
+      <div class="control has-icons-left has-icons-right">
+        <breeze-input
+          id="email"
+          type="email"
+          class="is-rounded"
+          :class="{ 'is-danger': errors.email }"
+          v-model="form.email"
+          required
+          autofocus
+          autocomplete="username"
+        />
+        <input-icon-left icon="fas fa-at" />
+        <input-icon-right v-if="errors.email" />
+        <help-text
+          v-if="errors.email"
+          type="is-danger"
+          :message="errors.email"
+        />
+      </div>
     </div>
 
-    <form @submit.prevent="submit">
-        <div>
-            <breeze-label for="email" value="Email" />
-            <breeze-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
-        </div>
+    <div class="field">
+      <breeze-label for="password" value="Contraseña" />
+      <div class="control has-icons-left has-icons-right">
+        <breeze-input
+          id="password"
+          type="password"
+          class="is-rounded"
+          :class="{ 'is-danger': errors.password }"
+          v-model="form.password"
+          required
+          autocomplete="current-password"
+        />
+        <input-icon-left icon="fas fa-lock" />
+        <input-icon-right v-if="errors.password" />
+        <help-text
+          v-if="errors.password"
+          type="is-danger"
+          :message="errors.password"
+        />
+      </div>
+    </div>
 
-        <div class="mt-4">
-            <breeze-label for="password" value="Password" />
-            <breeze-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
-        </div>
+    <div class="field">
+      <label class="checkbox">
+        <breeze-checkbox
+          text="Recuérdame"
+          name="remember"
+          v-model:checked="form.remember"
+        />
+        Recuérdame
+      </label>
+    </div>
 
-        <div class="block mt-4">
-            <label class="flex items-center">
-                <breeze-checkbox name="remember" v-model:checked="form.remember" />
-                <span class="ml-2 text-sm text-gray-600">Remember me</span>
-            </label>
-        </div>
+    <div class="is-flex is-justify-content-flex-end mb-4">
+      <inertia-link v-if="canResetPassword" :href="route('password.request')">
+        ¿Olvidó su contraseña?
+      </inertia-link>
+    </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Forgot your password?
-            </inertia-link>
-
-            <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Log in
-            </breeze-button>
-        </div>
-    </form>
+    <div class="field">
+      <div class="control">
+        <breeze-button
+          class="is-primary"
+          :class="{ 'is-loading': form.processing }"
+          :disabled="form.processing"
+        >
+          Iniciar Sesión
+        </breeze-button>
+      </div>
+    </div>
+  </form>
 </template>
 
 <script>
-    import BreezeButton from '@/Components/Button'
-    import BreezeGuestLayout from "@/Layouts/Guest"
-    import BreezeInput from '@/Components/Input'
-    import BreezeCheckbox from '@/Components/Checkbox'
-    import BreezeLabel from '@/Components/Label'
-    import BreezeValidationErrors from '@/Components/ValidationErrors'
+import BreezeButton from "@/Components/Button";
+import BreezeGuestLayout from "@/Layouts/Guest";
+import BreezeInput from "@/Components/Input";
+import BreezeCheckbox from "@/Components/Checkbox";
+import BreezeLabel from "@/Components/Label";
+import BreezeValidationErrors from "@/Components/ValidationErrors";
+import InputIconLeft from "@/Components/InputIconLeft.vue";
+import InputIconRight from "@/Components/InputIconRight.vue";
+import HelpText from "@/Components/HelpText.vue";
 
-    export default {
-        layout: BreezeGuestLayout,
+export default {
+  layout: BreezeGuestLayout,
 
-        components: {
-            BreezeButton,
-            BreezeInput,
-            BreezeCheckbox,
-            BreezeLabel,
-            BreezeValidationErrors
-        },
+  components: {
+    BreezeButton,
+    BreezeInput,
+    BreezeCheckbox,
+    BreezeLabel,
+    BreezeValidationErrors,
+    InputIconLeft,
+    InputIconRight,
+    HelpText,
+  },
 
-        props: {
-            auth: Object,
-            canResetPassword: Boolean,
-            errors: Object,
-            status: String,
-        },
+  props: {
+    auth: Object,
+    canResetPassword: Boolean,
+    errors: Object,
+    status: String,
+  },
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    email: '',
-                    password: '',
-                    remember: false
-                })
-            }
-        },
+  data() {
+    return {
+      form: this.$inertia.form({
+        email: "",
+        password: "",
+        remember: false,
+      }),
+    };
+  },
 
-        methods: {
-            submit() {
-                this.form
-                    .transform(data => ({
-                        ... data,
-                        remember: this.form.remember ? 'on' : ''
-                    }))
-                    .post(this.route('login'), {
-                        onFinish: () => this.form.reset('password'),
-                    })
-            }
-        }
-    }
+  methods: {
+    submit() {
+      this.form
+        .transform((data) => ({
+          ...data,
+          remember: this.form.remember ? "on" : "",
+        }))
+        .post(this.route("login"), {
+          onFinish: () => this.form.reset("password"),
+        });
+    },
+  },
+};
 </script>

@@ -1,35 +1,59 @@
 <template>
-    <breeze-validation-errors class="mb-4" />
+    <breeze-validation-errors />
 
-    <form @submit.prevent="submit">
-        <div>
-            <breeze-label for="name" value="Name" />
-            <breeze-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" required autofocus autocomplete="name" />
+    <form @submit.prevent="submit" novalidate>
+        <div class="field">
+            <breeze-label for="name" value="Nombres" />
+            <div class="control has-icons-left has-icons-right">
+                <breeze-input id="name" type="text" class="is-rounded" :class="{ 'is-danger': errors.name } " v-model="form.name" required autofocus autocomplete="name" />
+                <input-icon-left icon="fas fa-user" />
+                <input-icon-right v-if="errors.name" />
+                <help-text v-if="errors.name" type="is-danger" :message="errors.name" />
+            </div>
         </div>
 
-        <div class="mt-4">
-            <breeze-label for="email" value="Email" />
-            <breeze-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autocomplete="username" />
+        <div class="field">
+            <breeze-label for="email" value="Correo Electrónico" />
+            <div class="control has-icons-left has-icons-right">
+                <breeze-input id="email" type="email" class="is-rounded" :class="{ 'is-danger': errors.email }" v-model="form.email" required autocomplete="username" />
+                <input-icon-left icon="fas fa-at" />
+                <input-icon-right v-if="errors.email" />
+                <help-text v-if="errors.email" type="is-danger" :message="errors.email" />
+            </div>
         </div>
 
-        <div class="mt-4">
-            <breeze-label for="password" value="Password" />
-            <breeze-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="new-password" />
+        <div class="field">
+            <breeze-label for="password" value="Contraseña" />
+            <div class="control has-icons-left has-icons-right">
+                <breeze-input id="password" type="password" class="is-rounded" :class="{ 'is-danger': errors.password }" v-model="form.password" required autocomplete="new-password" />
+                <input-icon-left icon="fas fa-lock" />
+                <input-icon-right v-if="errors.password" />
+                <help-text v-if="errors.password" type="is-danger" :message="errors.password" />
+            </div>
         </div>
 
-        <div class="mt-4">
-            <breeze-label for="password_confirmation" value="Confirm Password" />
-            <breeze-input id="password_confirmation" type="password" class="mt-1 block w-full" v-model="form.password_confirmation" required autocomplete="new-password" />
+        <div class="field">
+            <breeze-label for="password_confirmation" value="Confirme Contraseña" />
+            <div class="control has-icons-left has-icons-right">
+                <breeze-input id="password_confirmation" type="password" class="is-rounded" :class="{ 'is-danger': errors.password_confirmation }" v-model="form.password_confirmation" required autocomplete="new-password" />
+                <input-icon-left icon="fas fa-lock" />
+                <input-icon-right v-if="errors.password_confirmation" />
+                <help-text v-if="errors.password_confirmation" type="is-danger" :message="errors.password_confirmation" />
+            </div>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <inertia-link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                Already registered?
+        <div class="is-flex is-justify-content-flex-end mb-4">
+            <inertia-link :href="route('login')">
+                ¿Ya está registrado?
             </inertia-link>
+        </div>
 
-            <breeze-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Register
+        <div class="field">
+            <div class="control">
+            <breeze-button class="is-primary" :class="{ 'is-loading': form.processing }" :disabled="form.processing">
+                Resistrar
             </breeze-button>
+            </div>
         </div>
     </form>
 </template>
@@ -40,6 +64,9 @@
     import BreezeInput from '@/Components/Input'
     import BreezeLabel from '@/Components/Label'
     import BreezeValidationErrors from '@/Components/ValidationErrors'
+    import InputIconLeft from '@/Components/InputIconLeft.vue'
+    import InputIconRight from '@/Components/InputIconRight.vue'
+    import HelpText from '@/Components/HelpText.vue'
 
     export default {
         layout: BreezeGuestLayout,
@@ -49,6 +76,9 @@
             BreezeInput,
             BreezeLabel,
             BreezeValidationErrors,
+            InputIconLeft,
+            InputIconRight,
+            HelpText
         },
 
         props: {
