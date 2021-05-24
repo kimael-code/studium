@@ -23,7 +23,7 @@ class CreateEvalActivitiesTable extends Migration
                              REFERENCES class_sessions
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
-            asgn_value       smallint NOT NULL
+            asgn_value       smallint NOT NULL,
             content          varchar  NOT NULL,
             created_at       date,
             updated_at       date,

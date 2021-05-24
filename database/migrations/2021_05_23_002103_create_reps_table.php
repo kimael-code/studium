@@ -16,11 +16,11 @@ class CreateRepsTable extends Migration
             PRIMARY KEY (id),
             id           bigint GENERATED ALWAYS AS IDENTITY,
             person_id    bigint NOT NULL
-                         REFERENCES people
+                         REFERENCES shared.people
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
             bond_type_id bigint NOT NULL
-                         REFERENCES bond_types
+                         REFERENCES shared.bond_types
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
             created_at date,

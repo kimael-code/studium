@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
                               ON DELETE RESTRICT
                               ON UPDATE RESTRICT,
             person_id         bigint UNIQUE
-                              REFERENCES people
+                              REFERENCES shared.people
                               ON DELETE RESTRICT
                               ON UPDATE RESTRICT,
             email             varchar(255) NOT NULL UNIQUE,

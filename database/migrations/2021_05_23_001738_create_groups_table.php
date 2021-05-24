@@ -20,7 +20,7 @@ class CreateGroupsTable extends Migration
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
             section_id   bigint NOT NULL
-                         REFERENCES subjects
+                         REFERENCES sections
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
             grade_id     bigint NOT NULL

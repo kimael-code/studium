@@ -20,7 +20,7 @@ class CreateAttendancesTable extends Migration
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
             class_session_id bigint  NOT NULL
-                             REFERENCES reps
+                             REFERENCES class_sessions
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
             is_present       boolean NOT NULL,

@@ -20,7 +20,7 @@ class CreatePermissionsTable extends Migration
             method     varchar      NOT NULL,
             created_at timestamp,
             updated_at timestamp,
-            deleted_at timestamp,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE permissions IS 'Rutas del sistema asignables a los roles.'";

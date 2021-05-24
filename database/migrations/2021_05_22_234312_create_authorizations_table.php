@@ -24,8 +24,8 @@ class CreateAuthorizationsTable extends Migration
                           ON DELETE CASCADE
                           ON UPDATE RESTRICT,
             created_at    timestamp,
-            updated_at    timestamp,
-        )
+            updated_at    timestamp
+        );
 
         COMMENT ON TABLE authorizations IS 'Permisos asignados a los roles,
                                             es decir, las rutas que los roles

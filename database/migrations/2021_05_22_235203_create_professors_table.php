@@ -16,7 +16,7 @@ class CreateProfessorsTable extends Migration
             PRIMARY KEY (id),
             id          bigint GENERATED ALWAYS AS IDENTITY,
             person_id   bigint NOT NULL
-                        REFERENCES people
+                        REFERENCES shared.people
                         ON DELETE RESTRICT
                         ON UPDATE RESTRICT,
             sch_year_id bigint NOT NULL

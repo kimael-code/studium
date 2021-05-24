@@ -16,7 +16,7 @@ class CreatePensumTable extends Migration
             PRIMARY KEY (id),
             id          bigint  GENERATED ALWAYS AS IDENTITY,
             approval_at date    NOT NULL UNIQUE,
-            is_current  boolean
+            is_current  boolean,
             about       varchar,
             created_at  date,
             updated_at  date,

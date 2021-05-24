@@ -20,7 +20,7 @@ class CreateEvalResultsTable extends Migration
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
             eval_activity_id bigint  NOT NULL
-                             REFERENCES reps
+                             REFERENCES eval_activities
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
             mark             smallint NOT NULL,

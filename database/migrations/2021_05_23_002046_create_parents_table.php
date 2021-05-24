@@ -16,7 +16,7 @@ class CreateParentsTable extends Migration
             PRIMARY KEY (id),
             id         bigint     GENERATED ALWAYS AS IDENTITY,
             person_id  bigint     NOT NULL
-                       REFERENCES people
+                       REFERENCES shared.people
                        ON DELETE RESTRICT
                        ON UPDATE RESTRICT,
             kinship    varchar(1) NOT NULL
