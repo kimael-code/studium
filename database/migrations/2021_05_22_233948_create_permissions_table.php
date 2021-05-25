@@ -16,8 +16,7 @@ class CreatePermissionsTable extends Migration
             PRIMARY KEY (id),
             id         bigint       GENERATED ALWAYS AS IDENTITY,
             name       varchar(128) NOT NULL UNIQUE,
-            controller varchar      NOT NULL,
-            method     varchar      NOT NULL,
+            action     varchar      NOT NULL,
             created_at timestamp,
             updated_at timestamp,
             deleted_at timestamp

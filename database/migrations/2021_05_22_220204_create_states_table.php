@@ -16,9 +16,9 @@ class CreateStatesTable extends Migration
             PRIMARY KEY (id),
             id          bigint      GENERATED ALWAYS AS IDENTITY,
             name        varchar(64) NOT NULL UNIQUE,
-            created_at  date        DEFAULT LOCALTIMESTAMP,
-            updated_at  date        DEFAULT LOCALTIMESTAMP,
-            deleted_at  date
+            created_at  timestamp   DEFAULT LOCALTIMESTAMP,
+            updated_at  timestamp   DEFAULT LOCALTIMESTAMP,
+            deleted_at  timestamp
         );
 
         COMMENT ON TABLE states IS 'Entidades Federales (Estados) de Venezuela.'";

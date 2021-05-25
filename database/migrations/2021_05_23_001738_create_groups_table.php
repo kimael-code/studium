@@ -14,26 +14,26 @@ class CreateGroupsTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS groups (
             PRIMARY KEY (id),
-            id           bigint GENERATED ALWAYS AS IDENTITY,
-            sch_year_id  bigint NOT NULL
+            id           bigint    GENERATED ALWAYS AS IDENTITY,
+            sch_year_id  bigint    NOT NULL
                          REFERENCES school_years
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
-            section_id   bigint NOT NULL
+            section_id   bigint    NOT NULL
                          REFERENCES sections
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
-            grade_id     bigint NOT NULL
+            grade_id     bigint    NOT NULL
                          REFERENCES grades
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
-            professor_id bigint NOT NULL
+            professor_id bigint    NOT NULL
                          REFERENCES professors
                          ON DELETE RESTRICT
                          ON UPDATE RESTRICT,
-            created_at   date,
-            updated_at   date,
-            deleted_at   date
+            created_at   timestamp,
+            updated_at   timestamp,
+            deleted_at   timestamp
         );
 
         COMMENT ON TABLE groups IS 'Conjunto de grados con sus secciones y

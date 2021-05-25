@@ -15,10 +15,10 @@ class CreateBondTypesTable extends Migration
         $query ="CREATE TABLE IF NOT EXISTS bond_types (
             PRIMARY KEY (id),
             id         bigint       GENERATED ALWAYS AS IDENTITY,
-            bonding    varchar(128) NOT NULL UNIQUE,
-            created_at date,
-            updated_at date,
-            deleted_at date
+            name       varchar(128) NOT NULL UNIQUE,
+            created_at timestamp,
+            updated_at timestamp,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE bond_types IS 'Parentescos de las personas.'";

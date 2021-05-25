@@ -21,9 +21,9 @@ class CreateSubjectMattersTable extends Migration
                        ON UPDATE RESTRICT,
             title      varchar(256) NOT NULL UNIQUE,
             content    varchar,
-            created_at date,
-            updated_at date,
-            deleted_at date
+            created_at timestamp,
+            updated_at timestamp,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE subject_matters IS 'Cada uno de los módulos o temas,

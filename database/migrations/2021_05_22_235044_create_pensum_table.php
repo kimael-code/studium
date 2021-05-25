@@ -14,13 +14,13 @@ class CreatePensumTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS pensum (
             PRIMARY KEY (id),
-            id          bigint  GENERATED ALWAYS AS IDENTITY,
-            approval_at date    NOT NULL UNIQUE,
+            id          bigint    GENERATED ALWAYS AS IDENTITY,
+            approval_at date      NOT NULL UNIQUE,
             is_current  boolean,
             about       varchar,
-            created_at  date,
-            updated_at  date,
-            deleted_at  date
+            created_at  timestamp,
+            updated_at  timestamp,
+            deleted_at  timestamp
         );
 
         COMMENT ON TABLE pensum IS 'Conjunto de asignaturas legalmente aprobadas.'";

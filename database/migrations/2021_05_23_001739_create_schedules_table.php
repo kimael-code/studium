@@ -14,20 +14,20 @@ class CreateSchedulesTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS schedules (
             PRIMARY KEY (id),
-            id                    bigint GENERATED ALWAYS AS IDENTITY,
-            professor_subject_id  bigint NOT NULL
+            id                    bigint    GENERATED ALWAYS AS IDENTITY,
+            professor_subject_id  bigint    NOT NULL
                                   REFERENCES professors_subjects
                                   ON DELETE RESTRICT
                                   ON UPDATE RESTRICT,
-            group_id              bigint NOT NULL
+            group_id              bigint    NOT NULL
                                   REFERENCES groups
                                   ON DELETE RESTRICT
                                   ON UPDATE RESTRICT,
             start_tmstamp         timestamp NOT NULL,
             end_tmstamp           timestamp NOT NULL,
-            created_at            date,
-            updated_at            date,
-            deleted_at            date
+            created_at            timestamp,
+            updated_at            timestamp,
+            deleted_at            timestamp
         );
 
         COMMENT ON TABLE schedules IS 'Horario de las materias con sus profesores

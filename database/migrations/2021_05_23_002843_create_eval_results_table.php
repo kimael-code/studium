@@ -14,20 +14,20 @@ class CreateEvalResultsTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS eval_results (
             PRIMARY KEY (id),
-            id               bigint  GENERATED ALWAYS AS IDENTITY,
-            student_id       bigint  NOT NULL
+            id               bigint    GENERATED ALWAYS AS IDENTITY,
+            student_id       bigint    NOT NULL
                              REFERENCES students
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
-            eval_activity_id bigint  NOT NULL
+            eval_activity_id bigint    NOT NULL
                              REFERENCES eval_activities
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
-            mark             smallint NOT NULL,
+            mark             smallint  NOT NULL,
             notes            varchar,
-            created_at       date,
-            updated_at       date,
-            deleted_at       date
+            created_at       timestamp,
+            updated_at       timestamp,
+            deleted_at       timestamp
         );
 
         COMMENT ON TABLE eval_results IS 'Resultados de las actividades

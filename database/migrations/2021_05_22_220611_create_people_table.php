@@ -47,9 +47,9 @@ class CreatePeopleTable extends Migration
             phones            varchar,
             occupation        varchar(256),
             profession        varchar(256),
-            created_at        date,
-            updated_at        date,
-            deleted_at        date
+            created_at        timestamp,
+            updated_at        timestamp,
+            deleted_at        timestamp
         );
 
         COMMENT ON TABLE people IS 'Datos de las personas.'";

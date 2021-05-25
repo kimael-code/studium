@@ -31,9 +31,9 @@ class CreateClassSessionsTable extends Migration
             start_tmstamp   timestamp NOT NULL,
             end_tmstamp     timestamp NOT NULL,
             notes           varchar,
-            created_at      date,
-            updated_at      date,
-            deleted_at      date
+            created_at      timestamp,
+            updated_at      timestamp,
+            deleted_at      timestamp
         );
 
         COMMENT ON TABLE class_sessions IS 'Sesiones presenciales de las clases.'";

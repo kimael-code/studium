@@ -22,9 +22,9 @@ class CreateParentsTable extends Migration
             kinship    varchar(1) NOT NULL
                        CONSTRAINT valid_kinship
                        CHECK(kinship = 'M' OR kinship = 'F'),
-            created_at date,
-            updated_at date,
-            deleted_at date
+            created_at timestamp,
+            updated_at timestamp,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE parents IS 'Mamás y papás de los estudiantes.'";

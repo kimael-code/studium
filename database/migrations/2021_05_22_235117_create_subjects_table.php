@@ -14,16 +14,16 @@ class CreateSubjectsTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS subjects (
             PRIMARY KEY (id),
-            id         bigint  GENERATED ALWAYS AS IDENTITY,
-            pensum_id  bigint  NOT NULL
+            id         bigint    GENERATED ALWAYS AS IDENTITY,
+            pensum_id  bigint    NOT NULL
                        REFERENCES pensum
                        ON DELETE CASCADE
                        ON UPDATE RESTRICT,
-            title      varchar NOT NULL UNIQUE,
+            title      varchar   NOT NULL UNIQUE,
             acad_hours smallint,
-            created_at date,
-            updated_at date,
-            deleted_at date
+            created_at timestamp,
+            updated_at timestamp,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE subjects IS 'Asignaturas o materias a cursar por los

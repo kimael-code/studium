@@ -21,9 +21,9 @@ class CreateCitiesTable extends Migration
                        ON UPDATE RESTRICT,
             name       varchar(256) NOT NULL,
             is_capital boolean      DEFAULT FALSE NOT NULL,
-            created_at date         DEFAULT LOCALTIMESTAMP,
-            updated_at date         DEFAULT LOCALTIMESTAMP,
-            deleted_at date
+            created_at timestamp    DEFAULT LOCALTIMESTAMP,
+            updated_at timestamp    DEFAULT LOCALTIMESTAMP,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE cities IS 'Ciudades de las Entidades Federales

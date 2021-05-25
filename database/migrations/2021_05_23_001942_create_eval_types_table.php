@@ -17,9 +17,9 @@ class CreateEvalTypesTable extends Migration
             id         bigint       GENERATED ALWAYS AS IDENTITY,
             name       varchar(256) NOT NULL,
             about      varchar,
-            created_at date,
-            updated_at date,
-            deleted_at date
+            created_at timestamp,
+            updated_at timestamp,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE eval_types IS 'Técnicas didácticas de evaluación.'";

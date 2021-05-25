@@ -14,19 +14,19 @@ class CreateAttendancesTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS attendances (
             PRIMARY KEY (id),
-            id               bigint  GENERATED ALWAYS AS IDENTITY,
-            student_id       bigint  NOT NULL
+            id               bigint    GENERATED ALWAYS AS IDENTITY,
+            student_id       bigint    NOT NULL
                              REFERENCES students
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
-            class_session_id bigint  NOT NULL
+            class_session_id bigint    NOT NULL
                              REFERENCES class_sessions
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
-            is_present       boolean NOT NULL,
-            created_at       date,
-            updated_at       date,
-            deleted_at       date
+            is_present       boolean   NOT NULL,
+            created_at       timestamp,
+            updated_at       timestamp,
+            deleted_at       timestamp
         );
 
         COMMENT ON TABLE attendances IS 'Asistencia de estudiantes a las

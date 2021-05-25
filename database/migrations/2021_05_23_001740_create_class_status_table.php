@@ -14,15 +14,15 @@ class CreateClassStatusTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS class_status (
             PRIMARY KEY (id),
-            id         bigint        GENERATED ALWAYS AS IDENTITY,
+            id         bigint       GENERATED ALWAYS AS IDENTITY,
             ancestor   bigint
                        REFERENCES class_status
                        ON DELETE CASCADE
                        ON UPDATE RESTRICT,
             name       varchar(256) NOT NULL,
-            created_at date,
-            updated_at date,
-            deleted_at date
+            created_at timestamp,
+            updated_at timestamp,
+            deleted_at timestamp
         );
 
         COMMENT ON TABLE class_status IS 'Situación actual de una sesión

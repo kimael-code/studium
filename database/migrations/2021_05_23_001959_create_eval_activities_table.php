@@ -14,20 +14,20 @@ class CreateEvalActivitiesTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS eval_activities (
             PRIMARY KEY (id),
-            id               bigint   GENERATED ALWAYS AS IDENTITY,
-            eval_type_id     bigint   NOT NULL
+            id               bigint    GENERATED ALWAYS AS IDENTITY,
+            eval_type_id     bigint    NOT NULL
                              REFERENCES eval_types
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
-            class_session_id bigint   NOT NULL
+            class_session_id bigint    NOT NULL
                              REFERENCES class_sessions
                              ON DELETE RESTRICT
                              ON UPDATE RESTRICT,
-            asgn_value       smallint NOT NULL,
-            content          varchar  NOT NULL,
-            created_at       date,
-            updated_at       date,
-            deleted_at       date
+            asgn_value       smallint  NOT NULL,
+            content          varchar   NOT NULL,
+            created_at       timestamp,
+            updated_at       timestamp,
+            deleted_at       timestamp
         );
 
         COMMENT ON TABLE eval_activities IS 'Técnicas didácticas de evaluación

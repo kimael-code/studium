@@ -14,17 +14,17 @@ class CreateProfessorsSubjectsTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS professors_subjects (
             PRIMARY KEY (id),
-            id           bigint GENERATED ALWAYS AS IDENTITY,
-            professor_id bigint NOT NULL
+            id           bigint    GENERATED ALWAYS AS IDENTITY,
+            professor_id bigint    NOT NULL
                          REFERENCES professors
                          ON DELETE CASCADE
                          ON UPDATE RESTRICT,
-            subject_id   bigint NOT NULL
+            subject_id   bigint    NOT NULL
                          REFERENCES subjects
                          ON DELETE CASCADE
                          ON UPDATE RESTRICT,
-            created_at   date,
-            updated_at   date
+            created_at   timestamp,
+            updated_at   timestamp
         );
 
         COMMENT ON TABLE professors_subjects IS 'Materias o asignaturas

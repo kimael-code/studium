@@ -14,17 +14,17 @@ class CreateRepsStudentsTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS reps_students (
             PRIMARY KEY (id),
-            id         bigint GENERATED ALWAYS AS IDENTITY,
-            rep_id     bigint NOT NULL
+            id         bigint    GENERATED ALWAYS AS IDENTITY,
+            rep_id     bigint    NOT NULL
                        REFERENCES reps
                        ON DELETE RESTRICT
                        ON UPDATE RESTRICT,
-            student_id bigint NOT NULL
+            student_id bigint    NOT NULL
                        REFERENCES students
                        ON DELETE RESTRICT
                        ON UPDATE RESTRICT,
-            created_at date,
-            updated_at date
+            created_at timestamp,
+            updated_at timestamp
         );
 
         COMMENT ON TABLE reps_students IS 'Estudiantes con sus respectivos
