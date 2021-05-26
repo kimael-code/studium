@@ -27,11 +27,11 @@ class CreatePeopleTable extends Migration
                               REFERENCES genders
                               ON DELETE RESTRICT
                               ON UPDATE RESTRICT,
-            parish_id         bigint NOT NULL
+            parish_id         bigint
                               REFERENCES parishes
                               ON DELETE RESTRICT
                               ON UPDATE RESTRICT,
-            city_id           bigint NOT NULL
+            city_id           bigint
                               REFERENCES cities
                               ON DELETE RESTRICT
                               ON UPDATE RESTRICT,
