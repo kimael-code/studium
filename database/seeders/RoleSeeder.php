@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RoleSeeder extends Seeder
 {
@@ -14,7 +15,11 @@ class RoleSeeder extends Seeder
     public function run()
     {
         $query = "INSERT INTO roles (name, about)
-                  VALUES ('Admin', 'Usuarios con privilegios para configurar el sistema.'),
-                         ('Director', 'Usuarios con privilegios para configurar el sistema.'),";
+                  VALUES ('Admin', 'Usuarios con privilegios para configurar el sistema.', 'now()', 'now()'),
+                         ('Director', 'Directores de liceos.', 'now()', 'now()'),
+                         ('Profesor', 'Profesores de liceos.', 'now()', 'now()'),
+                         ('Estudiante', 'Estudiantes de liceos.', 'now()', 'now()')";
+
+        DB::connection('auth')->unprepared($query);
     }
 }
