@@ -12,6 +12,13 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory, Notifiable;
 
     /**
+     * La conexión usada a la base de datos.
+     *
+     * @var string
+     */
+    protected $connection = 'auth';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -41,4 +48,14 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Obtiene el rol al cual pertenece el usuario.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
