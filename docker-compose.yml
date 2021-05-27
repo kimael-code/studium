@@ -2,7 +2,7 @@
 version: '3'
 
 services:
-    studium:
+    web:
         build:
             context: ./docker/8.0
             dockerfile: Dockerfile
@@ -21,7 +21,7 @@ services:
         depends_on:
             - pgsql
 
-    pgsql:
+    postgres:
         build: ./docker/pgsql/latest
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
