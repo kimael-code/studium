@@ -14,7 +14,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $query = "INSERT INTO roles (name, about)
+        $query = "INSERT INTO roles (name, about, created_at, updated_at)
                   VALUES ('Admin', 'Usuarios con privilegios para configurar el sistema.', 'now()', 'now()'),
                          ('Director', 'Directores de liceos.', 'now()', 'now()'),
                          ('Profesor', 'Profesores de liceos.', 'now()', 'now()'),
