@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             MunicipalitySeeder::class,
             ParishSeeder::class,
             CitySeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }
