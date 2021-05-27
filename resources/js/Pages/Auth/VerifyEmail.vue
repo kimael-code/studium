@@ -1,9 +1,11 @@
 <template>
-  <article class="message">
+  <article class="message is-info">
+    <div class="message-header">
+      <p>¡Gracias por registrarse!</p>
+    </div>
     <div class="message-body">
-      ¡Gracias por registrarse! Antes de comenzar, ¿podría verificar su
-      dirección de correo electrónico haciendo clic en el enlace que le acabamos
-      de enviar?
+      Antes de comenzar, ¿podría verificar su dirección de correo electrónico
+      haciendo clic en el enlace que le acabamos de enviar?
       <em>Si no recibió el correo electrónico, con gusto le enviaremos otro</em
       >.
     </div>
@@ -18,21 +20,22 @@
   </div>
 
   <form @submit.prevent="submit">
-    <div class="field is-flex is-justify-content-space-between">
+    <div class="field is-grouped">
       <div class="control">
         <breeze-button
-          class="is-info"
+          class="is-primary"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
-          Renviar Correo de Verificación
+          Reenviar Enlace
         </breeze-button>
-
+      </div>
+      <div class="control">
         <inertia-link
           :href="route('logout')"
           method="post"
           as="button"
-          class="underline text-sm text-gray-600 hover:text-gray-900"
+          class="button is-info is-light is-rounded"
           >Cerrar Sesión</inertia-link
         >
       </div>
