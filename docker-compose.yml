@@ -19,7 +19,7 @@ services:
         networks:
             - sail
         depends_on:
-            - pgsql
+            - postgres
 
     postgres:
         build: ./docker/pgsql/latest
