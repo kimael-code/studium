@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class CreateParentsTable extends Migration
+class CreateProgenitorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateParentsTable extends Migration
      */
     public function up()
     {
-        $query = "CREATE TABLE IF NOT EXISTS parents (
+        $query = "CREATE TABLE IF NOT EXISTS progenitors (
             PRIMARY KEY (id),
             id         bigint     GENERATED ALWAYS AS IDENTITY,
             person_id  bigint     NOT NULL
@@ -27,7 +27,7 @@ class CreateParentsTable extends Migration
             deleted_at timestamp
         );
 
-        COMMENT ON TABLE parents IS 'Mamás y papás de los estudiantes.'";
+        COMMENT ON TABLE progenitors IS 'Mamás y papás de los estudiantes.'";
 
         DB::connection('studium')->unprepared($query);
     }
@@ -39,7 +39,7 @@ class CreateParentsTable extends Migration
      */
     public function down()
     {
-        $query = "DROP TABLE IF EXISTS parents";
+        $query = "DROP TABLE IF EXISTS progenitors";
 
         DB::connection('studium')->unprepared($query);
     }
