@@ -10,7 +10,7 @@
     </template>
 
     <section class="section">
-      <h1 class="title">Bienvenido estimado usuario!</h1>
+      <h1 class="title">¡Bienvenido estimado usuario!</h1>
       <h2 class="subtitle">
         En construcción.
       </h2>
