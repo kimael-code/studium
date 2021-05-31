@@ -3,7 +3,7 @@
     <nav class="navbar is-info p-3" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <inertia-link class="navbar-item" :href="route('dashboard')">
-          <studium-logo width="112" height="28" />
+          <studium-logo  class="is-32x32" />
         </inertia-link>
 
         <a

@@ -16621,7 +16621,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     type: {
       type: String,
-      "default": "submit"
+      "default": 'submit'
     }
   }
 });
@@ -16640,7 +16640,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  emits: ["update:checked"],
+  emits: ['update:checked'],
   props: {
     checked: {
       type: [Array, Boolean],
@@ -16656,7 +16656,7 @@ __webpack_require__.r(__webpack_exports__);
         return this.checked;
       },
       set: function set(val) {
-        this.$emit("update:checked", val);
+        this.$emit('update:checked', val);
       }
     }
   }
@@ -16746,8 +16746,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["modelValue"],
-  emits: ["update:modelValue"],
+  props: ['modelValue'],
+  emits: ['update:modelValue'],
   methods: {
     focus: function focus() {
       this.$refs.input.focus();
@@ -17562,8 +17562,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_studium_logo, {
-        width: "112",
-        height: "28"
+        "class": "is-32x32"
       })];
     }),
     _: 1
