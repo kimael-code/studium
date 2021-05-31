@@ -3,7 +3,7 @@
     <nav class="navbar is-info p-3" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <inertia-link class="navbar-item" :href="route('dashboard')">
-          <breeze-application-logo width="112" height="28" />
+          <studium-logo width="112" height="28" />
         </inertia-link>
 
         <a
@@ -78,13 +78,11 @@
 </template>
 
 <script>
-import BreezeApplicationLogo from "@/Components/ApplicationLogo";
-import BreezeNavLink from "@/Components/NavLink";
+import StudiumLogo from '@/Components/BaseLogo'
 
 export default {
   components: {
-    BreezeApplicationLogo,
-    BreezeNavLink,
+    StudiumLogo,
   },
 
   data() {

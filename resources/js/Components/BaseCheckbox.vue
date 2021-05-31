@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  emits: ["update:checked"],
+  emits: ['update:checked'],
 
   props: {
     checked: {
@@ -27,9 +27,9 @@ export default {
       },
 
       set(val) {
-        this.$emit("update:checked", val);
+        this.$emit('update:checked', val);
       },
     },
   },
-};
+}
 </script>

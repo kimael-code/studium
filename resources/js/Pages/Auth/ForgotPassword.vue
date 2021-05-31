@@ -14,13 +14,13 @@
     {{ status }}
   </div>
 
-  <breeze-validation-errors />
+  <base-notification-validation />
 
   <form @submit.prevent="submit" novalidate>
     <div class="field">
-      <breeze-label for="email" value="Correo Electrónico" />
+      <label class="label" for="email">Correo Electrónico</label>
       <div class="control has-icons-left has-icons-right">
-        <breeze-input
+        <base-input
           id="email"
           type="email"
           class="is-rounded"
@@ -30,8 +30,8 @@
           autofocus
           autocomplete="username"
         />
-        <input-icon-left icon="fas fa-at" />
-        <input-icon-right v-if="errors.email" />
+        <base-icon-left icon="fas fa-at" />
+        <base-icon-right v-if="errors.email" />
         <help-text
           v-if="errors.email"
           type="is-danger"
@@ -42,39 +42,38 @@
 
     <div class="field is-flex is-justify-content-center">
       <div class="control">
-        <breeze-button
+        <base-button
           class="is-info"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
           Enviar Enlace de Restablecimiento
-        </breeze-button>
+        </base-button>
       </div>
     </div>
   </form>
 </template>
 
 <script>
-import BreezeButton from "@/Components/Button";
-import BreezeGuestLayout from "@/Layouts/Guest";
-import BreezeInput from "@/Components/Input";
-import BreezeLabel from "@/Components/Label";
-import BreezeValidationErrors from "@/Components/ValidationErrors";
-import InputIconLeft from "@/Components/InputIconLeft.vue";
-import InputIconRight from "@/Components/InputIconRight.vue";
-import HelpText from "@/Components/HelpText.vue";
+import TheGuestLayout from '@/Layouts/TheGuest'
+import BaseButton from '@/Components/BaseButton'
+import BaseHelpText from '@/Components/BaseHelpText'
+import BaseIconLeft from '@/Components/BaseIconLeftInput'
+import BaseIconRight from '@/Components/BaseIconRightInput'
+import BaseInput from '@/Components/BaseInput'
+import BaseNotificationValidation from '@/Components/BaseNotificationValidation'
 
 export default {
-  layout: BreezeGuestLayout,
+  layout: TheGuestLayout,
 
   components: {
-    BreezeButton,
-    BreezeInput,
+    BaseButton,
+    BaseHelpText,
+    BaseIconLeft,
+    BaseIconRight,
+    BaseInput,
     BreezeLabel,
-    BreezeValidationErrors,
-    InputIconLeft,
-    InputIconRight,
-    HelpText,
+    BaseNotificationValidation,
   },
 
   props: {
@@ -86,9 +85,9 @@ export default {
   data() {
     return {
       form: this.$inertia.form({
-        email: "",
+        email: '',
       }),
-    };
+    }
   },
 
   methods: {
@@ -96,5 +95,5 @@ export default {
       this.form.post(this.route("password.email"));
     },
   },
-};
+}
 </script>

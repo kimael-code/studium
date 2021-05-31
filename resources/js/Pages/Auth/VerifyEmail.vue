@@ -5,7 +5,7 @@
     </div>
     <div class="message-body">
       Antes de comenzar, ¿podría verificar su dirección de correo electrónico
-      haciendo clic en el enlace que le acabamos de enviar?
+      haciendo clic en el enlace que le acabamos de enviar?.
       <em>Si no recibió el correo electrónico, con gusto le enviaremos otro</em
       >.
     </div>
@@ -22,13 +22,13 @@
   <form @submit.prevent="submit">
     <div class="field is-grouped">
       <div class="control">
-        <breeze-button
+        <base-button
           class="is-primary"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
           Reenviar Enlace
-        </breeze-button>
+        </base-button>
       </div>
       <div class="control">
         <inertia-link
@@ -44,14 +44,14 @@
 </template>
 
 <script>
-import BreezeButton from "@/Components/Button";
-import BreezeGuestLayout from "@/Layouts/Guest";
+import TheGuestLayout from '@/Layouts/TheGuest'
+import BaseButton from '@/Components/BaseButton'
 
 export default {
-  layout: BreezeGuestLayout,
+  layout: TheGuestLayout,
 
   components: {
-    BreezeButton,
+    BaseButton,
   },
 
   props: {
@@ -63,19 +63,19 @@ export default {
   data() {
     return {
       form: this.$inertia.form(),
-    };
+    }
   },
 
   methods: {
     submit() {
-      this.form.post(this.route("verification.send"));
+      this.form.post(this.route('verification.send'))
     },
   },
 
   computed: {
     verificationLinkSent() {
-      return this.status === "verification-link-sent";
+      return this.status === 'verification-link-sent';
     },
   },
-};
+}
 </script>
