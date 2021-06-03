@@ -43,7 +43,7 @@
                     <span class="icon">
                       <i class="fas fa-sign-in-alt"></i>
                     </span>
-                    <span>Inicie Sesión</span>
+                    <span>Ingresar</span>
                   </inertia-link>
                 </span>
               </template>

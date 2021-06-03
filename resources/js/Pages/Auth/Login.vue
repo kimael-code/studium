@@ -75,7 +75,7 @@
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
-          Iniciar Sesión
+          Ingresar
         </base-button>
       </div>
     </div>

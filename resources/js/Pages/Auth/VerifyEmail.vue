@@ -36,7 +36,7 @@
           method="post"
           as="button"
           class="button is-info is-light is-rounded"
-          >Cerrar Sesión</inertia-link
+          >Salir</inertia-link
         >
       </div>
     </div>
