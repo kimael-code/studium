@@ -1,5 +1,5 @@
 <template>
-  <breeze-authenticated-layout>
+  <the-authenticated-layout>
     <template #header>
       <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
@@ -10,7 +10,7 @@
     </template>
 
     <section class="section">
-      <h1 class="title">Bienvenido estimado usuario!</h1>
+      <h1 class="title">¡Bienvenido estimado usuario!</h1>
       <h2 class="subtitle">
         En construcción.
       </h2>
@@ -23,20 +23,20 @@
         desarrollo estable.
       </p>
     </article>
-  </breeze-authenticated-layout>
+  </the-authenticated-layout>
 </template>
 
 <script>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated";
+import TheAuthenticatedLayout from '@/Layouts/TheAuthenticated'
 
 export default {
   components: {
-    BreezeAuthenticatedLayout,
+    TheAuthenticatedLayout,
   },
 
   props: {
     auth: Object,
     errors: Object,
   },
-};
+}
 </script>

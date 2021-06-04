@@ -1,5 +1,5 @@
 <template>
-  <span class="icon is-small is-left">
+  <span class="icon">
     <i :class="icon"></i>
   </span>
 </template>
@@ -9,8 +9,8 @@ export default {
   props: {
     icon: {
       type: String,
-      default: 'fas fa-keyboard'
-    }
-  }
-};
+      required: true,
+    },
+  },
+}
 </script>

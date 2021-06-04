@@ -1,11 +1,11 @@
 <template>
-  <breeze-validation-errors />
+  <base-notification-validation />
 
   <form @submit.prevent="submit" novalidate>
     <div class="field">
-      <breeze-label for="email" value="Correo Electrónico" />
+      <label class="label" for="email">Correo Electrónico</label>
       <div class="control has-icons-left has-icons-right">
-        <breeze-input
+        <base-input
           id="email"
           type="email"
           class="is-rounded"
@@ -14,8 +14,8 @@
           required
           autocomplete="username"
         />
-        <input-icon-left icon="fas fa-at" />
-        <input-icon-right v-if="errors.email" />
+        <base-icon-left icon="fas fa-at" />
+        <base-icon-right v-if="errors.email" />
         <help-text
           v-if="errors.email"
           type="is-danger"
@@ -25,9 +25,9 @@
     </div>
 
     <div class="field">
-      <breeze-label for="password" value="Contraseña" />
+      <label class="label" for="password">Contraseña</label>
       <div class="control has-icons-left has-icons-right">
-        <breeze-input
+        <base-input
           id="password"
           type="password"
           class="is-rounded"
@@ -36,8 +36,8 @@
           required
           autocomplete="new-password"
         />
-        <input-icon-left icon="fas fa-lock" />
-        <input-icon-right v-if="errors.password" />
+        <base-icon-left icon="fas fa-lock" />
+        <base-icon-right v-if="errors.password" />
         <help-text
           v-if="errors.password"
           type="is-danger"
@@ -47,9 +47,9 @@
     </div>
 
     <div class="field">
-      <breeze-label for="password_confirmation" value="Confirme Contraseña" />
+      <label class="label" for="password_confirmation">Confirme Contraseña</label>
       <div class="control has-icons-left has-icons-right">
-        <breeze-input
+        <base-input
           id="password_confirmation"
           type="password"
           class="is-rounded"
@@ -58,8 +58,8 @@
           required
           autocomplete="new-password"
         />
-        <input-icon-left icon="fas fa-lock" />
-        <input-icon-right v-if="errors.password_confirmation" />
+        <base-icon-left icon="fas fa-lock" />
+        <base-icon-right v-if="errors.password_confirmation" />
         <help-text
           v-if="errors.password_confirmation"
           type="is-danger"
@@ -70,39 +70,38 @@
 
     <div class="field is-flex is-justify-content-center">
       <div class="control">
-        <breeze-button
+        <base-button
           class="is-warning"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
           Restablecer Contraseña
-        </breeze-button>
+        </base-button>
       </div>
     </div>
   </form>
 </template>
 
 <script>
-import BreezeButton from "@/Components/Button";
-import BreezeGuestLayout from "@/Layouts/Guest";
-import BreezeInput from "@/Components/Input";
-import BreezeLabel from "@/Components/Label";
-import BreezeValidationErrors from "@/Components/ValidationErrors";
-import InputIconLeft from "@/Components/InputIconLeft.vue";
-import InputIconRight from "@/Components/InputIconRight.vue";
-import HelpText from "@/Components/HelpText.vue";
+import TheGuestLayout from '@/Layouts/TheGuest'
+import BaseButton from '@/Components/BaseButton'
+import BaseHelpText from '@/Components/BaseHelpText'
+import BaseIconLeft from '@/Components/BaseIconLeftInput'
+import BaseIconRight from '@/Components/BaseIconRightInput'
+import BaseInput from '@/Components/BaseInput'
+import BaseNotificationValidation from '@/Components/BaseNotificationValidation'
 
 export default {
-  layout: BreezeGuestLayout,
+  layout: TheGuestLayout,
 
   components: {
-    BreezeButton,
-    BreezeInput,
+    BaseButton,
+    BaseHelpText,
+    BaseIconLeft,
+    BaseIconRight,
+    BaseInput,
     BreezeLabel,
-    BreezeValidationErrors,
-    InputIconLeft,
-    InputIconRight,
-    HelpText,
+    BaseNotificationValidation,
   },
 
   props: {
@@ -117,18 +116,18 @@ export default {
       form: this.$inertia.form({
         token: this.token,
         email: this.email,
-        password: "",
-        password_confirmation: "",
+        password: '',
+        password_confirmation: '',
       }),
-    };
+    }
   },
 
   methods: {
     submit() {
-      this.form.post(this.route("password.update"), {
-        onFinish: () => this.form.reset("password", "password_confirmation"),
+      this.form.post(this.route('password.update'), {
+        onFinish: () => this.form.reset('password', 'password_confirmation'),
       });
     },
   },
-};
+}
 </script>

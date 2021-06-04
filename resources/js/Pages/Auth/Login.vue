@@ -1,5 +1,5 @@
 <template>
-  <breeze-validation-errors />
+  <base-notification-validation />
 
   <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
     {{ status }}
@@ -7,9 +7,9 @@
 
   <form @submit.prevent="submit" novalidate>
     <div class="field">
-      <breeze-label for="email" value="Correo Electrónico" />
+      <label class="label" for="email">Correo Electrónico</label>
       <div class="control has-icons-left has-icons-right">
-        <breeze-input
+        <base-input
           id="email"
           type="email"
           class="is-rounded"
@@ -19,9 +19,9 @@
           autofocus
           autocomplete="username"
         />
-        <input-icon-left icon="fas fa-at" />
-        <input-icon-right v-if="errors.email" />
-        <help-text
+        <base-icon-left icon="fas fa-at" />
+        <base-icon-right v-if="errors.email" />
+        <base-help-text
           v-if="errors.email"
           type="is-danger"
           :message="errors.email"
@@ -30,9 +30,9 @@
     </div>
 
     <div class="field">
-      <breeze-label for="password" value="Contraseña" />
+      <label class="label" for="password">Contraseña</label>
       <div class="control has-icons-left has-icons-right">
-        <breeze-input
+        <base-input
           id="password"
           type="password"
           class="is-rounded"
@@ -41,9 +41,9 @@
           required
           autocomplete="current-password"
         />
-        <input-icon-left icon="fas fa-lock" />
-        <input-icon-right v-if="errors.password" />
-        <help-text
+        <base-icon-left icon="fas fa-lock" />
+        <base-icon-right v-if="errors.password" />
+        <base-help-text
           v-if="errors.password"
           type="is-danger"
           :message="errors.password"
@@ -53,7 +53,7 @@
 
     <div class="field">
       <label class="checkbox">
-        <breeze-checkbox
+        <base-checkbox
           text="Recuérdame"
           name="remember"
           v-model:checked="form.remember"
@@ -70,41 +70,39 @@
 
     <div class="field">
       <div class="control">
-        <breeze-button
+        <base-button
           class="is-primary"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
-          Iniciar Sesión
-        </breeze-button>
+          Ingresar
+        </base-button>
       </div>
     </div>
   </form>
 </template>
 
 <script>
-import BreezeButton from "@/Components/Button";
-import BreezeGuestLayout from "@/Layouts/Guest";
-import BreezeInput from "@/Components/Input";
-import BreezeCheckbox from "@/Components/Checkbox";
-import BreezeLabel from "@/Components/Label";
-import BreezeValidationErrors from "@/Components/ValidationErrors";
-import InputIconLeft from "@/Components/InputIconLeft.vue";
-import InputIconRight from "@/Components/InputIconRight.vue";
-import HelpText from "@/Components/HelpText.vue";
+import TheGuestLayout from '@/Layouts/TheGuest'
+import BaseButton from '@/Components/BaseButton'
+import BaseCheckbox from '@/Components/BaseCheckbox'
+import BaseHelpText from '@/Components/BaseHelpText'
+import BaseIconLeft from '@/Components/BaseIconLeftInput'
+import BaseIconRight from '@/Components/BaseIconRightInput'
+import BaseInput from '@/Components/BaseInput'
+import BaseNotificationValidation from '@/Components/BaseNotificationValidation'
 
 export default {
-  layout: BreezeGuestLayout,
+  layout: TheGuestLayout,
 
   components: {
-    BreezeButton,
-    BreezeInput,
-    BreezeCheckbox,
-    BreezeLabel,
-    BreezeValidationErrors,
-    InputIconLeft,
-    InputIconRight,
-    HelpText,
+    BaseButton,
+    BaseCheckbox,
+    BaseHelpText,
+    BaseIconLeft,
+    BaseIconRight,
+    BaseInput,
+    BaseNotificationValidation,
   },
 
   props: {
@@ -136,5 +134,5 @@ export default {
         });
     },
   },
-};
+}
 </script>

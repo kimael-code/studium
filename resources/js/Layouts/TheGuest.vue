@@ -2,12 +2,10 @@
   <div class="columns is-centered section is-medium">
     <div class="column is-3 container">
       <div class="card is-one-fifth">
-        <div class="is-flex is-justify-content-center card-image mt-4">
-          <figure class="image is-64x64 mt-4">
-            <inertia-link href="/">
-              <breeze-application-logo />
-            </inertia-link>
-          </figure>
+        <div class="card-image is-flex is-justify-content-center">
+          <inertia-link href="/">
+            <studium-logo class="is-64x64 mt-4" />
+          </inertia-link>
         </div>
         <div class="card-content">
           <div class="content">
@@ -20,11 +18,11 @@
 </template>
 
 <script>
-import BreezeApplicationLogo from "@/Components/ApplicationLogo";
+import StudiumLogo from '@/Components/BaseLogo'
 
 export default {
   components: {
-    BreezeApplicationLogo,
+    StudiumLogo,
   },
-};
+}
 </script>
