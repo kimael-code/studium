@@ -14,17 +14,17 @@ class CreateProgenitorsStudentsTable extends Migration
     {
         $query = "CREATE TABLE IF NOT EXISTS progenitors_students (
             PRIMARY KEY (id),
-            id         bigint    GENERATED ALWAYS AS IDENTITY,
-            parent_id  bigint    NOT NULL
-                       REFERENCES progenitors
-                       ON DELETE RESTRICT
-                       ON UPDATE RESTRICT,
-            student_id bigint    NOT NULL
-                       REFERENCES students
-                       ON DELETE RESTRICT
-                       ON UPDATE RESTRICT,
-            created_at timestamp,
-            updated_at timestamp
+            id            bigint    GENERATED ALWAYS AS IDENTITY,
+            progenitor_id bigint    NOT NULL
+                          REFERENCES progenitors
+                          ON DELETE RESTRICT
+                          ON UPDATE RESTRICT,
+            student_id    bigint    NOT NULL
+                          REFERENCES students
+                          ON DELETE RESTRICT
+                          ON UPDATE RESTRICT,
+            created_at    timestamp,
+            updated_at    timestamp
         );
 
         COMMENT ON TABLE progenitors_students IS 'Estudiantes con sus respectivos
