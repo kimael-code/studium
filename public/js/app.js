@@ -16948,7 +16948,6 @@ __webpack_require__.r(__webpack_exports__);
     BaseIconLeft: _Components_BaseIconLeftInput__WEBPACK_IMPORTED_MODULE_3__.default,
     BaseIconRight: _Components_BaseIconRightInput__WEBPACK_IMPORTED_MODULE_4__.default,
     BaseInput: _Components_BaseInput__WEBPACK_IMPORTED_MODULE_5__.default,
-    BreezeLabel: BreezeLabel,
     BaseNotificationValidation: _Components_BaseNotificationValidation__WEBPACK_IMPORTED_MODULE_6__.default
   },
   props: {
@@ -17148,7 +17147,6 @@ __webpack_require__.r(__webpack_exports__);
     BaseIconLeft: _Components_BaseIconLeftInput__WEBPACK_IMPORTED_MODULE_3__.default,
     BaseIconRight: _Components_BaseIconRightInput__WEBPACK_IMPORTED_MODULE_4__.default,
     BaseInput: _Components_BaseInput__WEBPACK_IMPORTED_MODULE_5__.default,
-    BreezeLabel: BreezeLabel,
     BaseNotificationValidation: _Components_BaseNotificationValidation__WEBPACK_IMPORTED_MODULE_6__.default
   },
   props: {
@@ -18317,7 +18315,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_base_icon_right = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-icon-right");
 
-  var _component_help_text = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("help-text");
+  var _component_base_help_text = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-help-text");
 
   var _component_base_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-button");
 
@@ -18347,7 +18345,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     icon: "fas fa-at"
   }), $props.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_icon_right, {
     key: 0
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_help_text, {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_help_text, {
     key: 1,
     type: "is-danger",
     message: $props.errors.email
@@ -18870,7 +18868,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_base_icon_right = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-icon-right");
 
-  var _component_help_text = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("help-text");
+  var _component_base_help_text = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-help-text");
 
   var _component_base_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("base-button");
 
@@ -18897,7 +18895,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     icon: "fas fa-at"
   }), $props.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_icon_right, {
     key: 0
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_help_text, {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.email ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_help_text, {
     key: 1,
     type: "is-danger",
     message: $props.errors.email
@@ -18921,7 +18919,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     icon: "fas fa-lock"
   }), $props.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_icon_right, {
     key: 0
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_help_text, {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.password ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_help_text, {
     key: 1,
     type: "is-danger",
     message: $props.errors.password
@@ -18945,7 +18943,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     icon: "fas fa-lock"
   }), $props.errors.password_confirmation ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_icon_right, {
     key: 0
-  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.password_confirmation ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_help_text, {
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $props.errors.password_confirmation ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_base_help_text, {
     key: 1,
     type: "is-danger",
     message: $props.errors.password_confirmation

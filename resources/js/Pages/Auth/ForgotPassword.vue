@@ -32,7 +32,7 @@
         />
         <base-icon-left icon="fas fa-at" />
         <base-icon-right v-if="errors.email" />
-        <help-text
+        <base-help-text
           v-if="errors.email"
           type="is-danger"
           :message="errors.email"
@@ -72,7 +72,6 @@ export default {
     BaseIconLeft,
     BaseIconRight,
     BaseInput,
-    BreezeLabel,
     BaseNotificationValidation,
   },
 

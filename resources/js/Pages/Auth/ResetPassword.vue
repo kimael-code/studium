@@ -16,7 +16,7 @@
         />
         <base-icon-left icon="fas fa-at" />
         <base-icon-right v-if="errors.email" />
-        <help-text
+        <base-help-text
           v-if="errors.email"
           type="is-danger"
           :message="errors.email"
@@ -38,7 +38,7 @@
         />
         <base-icon-left icon="fas fa-lock" />
         <base-icon-right v-if="errors.password" />
-        <help-text
+        <base-help-text
           v-if="errors.password"
           type="is-danger"
           :message="errors.password"
@@ -60,7 +60,7 @@
         />
         <base-icon-left icon="fas fa-lock" />
         <base-icon-right v-if="errors.password_confirmation" />
-        <help-text
+        <base-help-text
           v-if="errors.password_confirmation"
           type="is-danger"
           :message="errors.password_confirmation"
@@ -100,7 +100,6 @@ export default {
     BaseIconLeft,
     BaseIconRight,
     BaseInput,
-    BreezeLabel,
     BaseNotificationValidation,
   },
 
