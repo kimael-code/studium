@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ActivityLog extends Model
+{
+    use HasFactory;
+
+    protected $connection = 'audit';
+
+    protected $attributes = [
+        'description' => '',
+        'user_role'   => null,
+        'user_id'     => null,
+        'http_route'  => '',
+        'ip_address'  => '',
+        'user_agent'  => '',
+        'locale'      => '',
+        'referer'     => '',
+        'method_type' => '',
+    ];
+
+    protected $fillable = [
+        'description',
+        'user_role',
+        'user_id',
+        'http_route',
+        'ip_address',
+        'user_agent',
+        'locale',
+        'referer',
+        'method_type',
+    ];
+
+    protected $casts = [
+        'description' => 'string',
+        'user_role'   => 'integer',
+        'user_id'     => 'integer',
+        'http_route'  => 'string',
+        'ip_address'  => 'string',
+        'user_agent'  => 'string',
+        'locale'      => 'string',
+        'referer'     => 'string',
+        'method_type' => 'string',
+    ];
+}
