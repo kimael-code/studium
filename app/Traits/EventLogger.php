@@ -14,8 +14,8 @@ trait EventLogger
     {
         $data = [
             'description' => $event['description'],
-            'user_role'   => $event['userRole'],
-            'user_id'     => $event['userId'],
+            'user_role'   => $event['user_role'],
+            'user_id'     => $event['user_id'],
             'http_route'  => Request::fullUrl(),
             'ip_address'  => Request::ip(),
             'user_agent'  => Request::header('user-agent'),
