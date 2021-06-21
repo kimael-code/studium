@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import StudiumLogo from '@/Components/BaseLogo'
+import StudiumLogo from '@/Components/AppLogo'
 import NavbarMenuAdmin from '@/Layouts/TheAuthenticatedMenuForAdmin'
 import NavbarMenuDirector from '@/Layouts/TheAuthenticatedMenuForDirector'
 import NavbarMenuProfessor from '@/Layouts/TheAuthenticatedMenuForProfessor'

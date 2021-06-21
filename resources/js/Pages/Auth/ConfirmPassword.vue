@@ -1,35 +1,25 @@
 <template>
-  <article class="message">
-    <div class="message-header">
-      <p>Entrando a zona de seguridad</p>
-      <button class="delete" aria-label="delete"></button>
-    </div>
-    <div class="message-body">
-      Por favor, confirme su Contraseña antes de continuar.
-    </div>
-  </article>
+  <app-confirm-password-message />
 
-  <base-notification-validation />
+  <app-notification-validation />
 
   <form @submit.prevent="submit" novalidate>
     <div class="field">
       <label class="label" for="password">Contraseña</label>
       <div class="control has-icons-left has-icons-right">
-        <base-input
+        <app-input
           id="password"
           type="password"
-          class="is-rounded"
           :class="{ 'is-danger': errors.password }"
           v-model="form.password"
           required
           autofocus
           autocomplete="current-password"
         />
-        <base-icon-left icon="fas fa-lock" />
-        <base-icon-right v-if="errors.password" />
-        <help-text
+        <app-icon-left icon="fas fa-lock" />
+        <app-icon-right v-if="errors.password" />
+        <app-help-text-danger
           v-if="errors.password"
-          type="is-danger"
           :message="errors.password"
         />
       </div>
@@ -37,13 +27,13 @@
 
     <div class="field is-flex is-justify-content-end">
       <div class="control">
-        <base-button
+        <app-button
           class="is-primary"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
           Confirmar
-        </base-button>
+        </app-button>
       </div>
     </div>
   </form>
@@ -51,23 +41,25 @@
 
 <script>
 import TheGuestLayout from '@/Layouts/TheGuest'
-import BaseButton from '@/Components/BaseButton'
-import BaseHelpText from '@/Components/BaseHelpText'
-import BaseIconLeft from '@/Components/BaseIconLeftInput'
-import BaseIconRight from '@/Components/BaseIconRightInput'
-import BaseInput from '@/Components/BaseInput'
-import BaseNotificationValidation from '@/Components/BaseNotificationValidation'
+import AppButton from '@/Components/AppButton'
+import AppConfirmPasswordMessage from '@/Components/AppConfirmPasswordMessage'
+import AppHelpTextDanger from '@/Components/AppHelpTextDanger'
+import AppIconLeft from '@/Components/AppIconLeft'
+import AppIconRight from '@/Components/AppIconRight'
+import AppInput from '@/Components/AppInput'
+import AppNotificationValidation from '@/Components/AppNotificationValidation'
 
 export default {
   layout: TheGuestLayout,
 
   components: {
-    BaseButton,
-    BaseHelpText,
-    BaseIconLeft,
-    BaseIconRight,
-    BaseInput,
-    BaseNotificationValidation,
+    AppButton,
+    AppConfirmPasswordMessage,
+    AppHelpTextDanger,
+    AppIconLeft,
+    AppIconRight,
+    AppInput,
+    AppNotificationValidation,
   },
 
   props: {
@@ -78,17 +70,17 @@ export default {
   data() {
     return {
       form: this.$inertia.form({
-        password: "",
+        password: '',
       }),
-    };
+    }
   },
 
   methods: {
     submit() {
-      this.form.post(this.route("password.confirm"), {
+      this.form.post(this.route('password.confirm'), {
         onFinish: () => this.form.reset(),
-      });
+      })
     },
   },
-};
+}
 </script>

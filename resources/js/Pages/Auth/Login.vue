@@ -1,5 +1,5 @@
 <template>
-  <base-notification-validation />
+  <app-notification-validation />
 
   <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
     {{ status }}
@@ -9,21 +9,19 @@
     <div class="field">
       <label class="label" for="email">Correo Electrónico</label>
       <div class="control has-icons-left has-icons-right">
-        <base-input
+        <app-input
           id="email"
           type="email"
-          class="is-rounded"
           :class="{ 'is-danger': errors.email }"
           v-model="form.email"
           required
           autofocus
           autocomplete="username"
         />
-        <base-icon-left icon="fas fa-at" />
-        <base-icon-right v-if="errors.email" />
-        <base-help-text
+        <app-icon-left icon="fas fa-at" />
+        <app-icon-right v-if="errors.email" />
+        <app-help-text-danger
           v-if="errors.email"
-          type="is-danger"
           :message="errors.email"
         />
       </div>
@@ -32,20 +30,18 @@
     <div class="field">
       <label class="label" for="password">Contraseña</label>
       <div class="control has-icons-left has-icons-right">
-        <base-input
+        <app-input
           id="password"
           type="password"
-          class="is-rounded"
           :class="{ 'is-danger': errors.password }"
           v-model="form.password"
           required
           autocomplete="current-password"
         />
-        <base-icon-left icon="fas fa-lock" />
-        <base-icon-right v-if="errors.password" />
-        <base-help-text
+        <app-icon-left icon="fas fa-lock" />
+        <app-icon-right v-if="errors.password" />
+        <app-help-text-danger
           v-if="errors.password"
-          type="is-danger"
           :message="errors.password"
         />
       </div>
@@ -53,7 +49,7 @@
 
     <div class="field">
       <label class="checkbox">
-        <base-checkbox
+        <app-checkbox
           text="Recuérdame"
           name="remember"
           v-model:checked="form.remember"
@@ -70,13 +66,13 @@
 
     <div class="field">
       <div class="control">
-        <base-button
+        <app-button
           class="is-primary"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
           Ingresar
-        </base-button>
+        </app-button>
       </div>
     </div>
   </form>
@@ -84,25 +80,25 @@
 
 <script>
 import TheGuestLayout from '@/Layouts/TheGuest'
-import BaseButton from '@/Components/BaseButton'
-import BaseCheckbox from '@/Components/BaseCheckbox'
-import BaseHelpText from '@/Components/BaseHelpText'
-import BaseIconLeft from '@/Components/BaseIconLeftInput'
-import BaseIconRight from '@/Components/BaseIconRightInput'
-import BaseInput from '@/Components/BaseInput'
-import BaseNotificationValidation from '@/Components/BaseNotificationValidation'
+import AppButton from '@/Components/AppButton'
+import AppCheckbox from '@/Components/AppCheckbox'
+import AppHelpTextDanger from '@/Components/AppHelpTextDanger'
+import AppIconLeft from '@/Components/AppIconLeft'
+import AppIconRight from '@/Components/AppIconRight'
+import AppInput from '@/Components/AppInput'
+import AppNotificationValidation from '@/Components/AppNotificationValidation'
 
 export default {
   layout: TheGuestLayout,
 
   components: {
-    BaseButton,
-    BaseCheckbox,
-    BaseHelpText,
-    BaseIconLeft,
-    BaseIconRight,
-    BaseInput,
-    BaseNotificationValidation,
+    AppButton,
+    AppCheckbox,
+    AppHelpTextDanger,
+    AppIconLeft,
+    AppIconRight,
+    AppInput,
+    AppNotificationValidation,
   },
 
   props: {
@@ -115,8 +111,8 @@ export default {
   data() {
     return {
       form: this.$inertia.form({
-        email: "",
-        password: "",
+        email: '',
+        password: '',
         remember: false,
       }),
     };
@@ -127,11 +123,11 @@ export default {
       this.form
         .transform((data) => ({
           ...data,
-          remember: this.form.remember ? "on" : "",
+          remember: this.form.remember ? 'on' : '',
         }))
-        .post(this.route("login"), {
-          onFinish: () => this.form.reset("password"),
-        });
+        .post(this.route('login'), {
+          onFinish: () => this.form.reset('password'),
+        })
     },
   },
 }
