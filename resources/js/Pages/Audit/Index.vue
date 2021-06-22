@@ -114,6 +114,11 @@
             </tbody>
           </table>
         </div>
+        <app-pagination
+          :links="activities_log.links"
+          :nextpage="activities_log.next_page_url"
+          :prevpage="activities_log.prev_page_url"
+        />
       </section>
     </the-authenticated-layout>
   </div>
@@ -123,6 +128,7 @@
 import TheAuthenticatedLayout from '@/Layouts/TheAuthenticated'
 import AppIconLeft from '@/Components/AppIconLeft'
 import AppInput from '@/Components/AppInput'
+import AppPagination from '@/Components/AppPagination'
 import pickBy from 'lodash/pickBy'
 import throttle from 'lodash/throttle'
 import mapValues from 'lodash/mapValues'
@@ -133,7 +139,8 @@ export default {
   components: {
     TheAuthenticatedLayout,
     AppIconLeft,
-    AppInput
+    AppInput,
+    AppPagination,
   },
 
   props: {
@@ -141,6 +148,10 @@ export default {
     errors: Object,
     filters: Object,
     activities_log: Object,
+  },
+
+  setup(props) {
+    console.log(props)
   },
 
   data() {
