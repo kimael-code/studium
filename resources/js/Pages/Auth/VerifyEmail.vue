@@ -22,13 +22,13 @@
   <form @submit.prevent="submit">
     <div class="field is-grouped">
       <div class="control">
-        <base-button
+        <app-button
           class="is-primary"
           :class="{ 'is-loading': form.processing }"
           :disabled="form.processing"
         >
           Reenviar Enlace
-        </base-button>
+        </app-button>
       </div>
       <div class="control">
         <inertia-link
@@ -36,8 +36,9 @@
           method="post"
           as="button"
           class="button is-info is-light is-rounded"
-          >Salir</inertia-link
         >
+          Salir
+        </inertia-link>
       </div>
     </div>
   </form>
@@ -45,13 +46,13 @@
 
 <script>
 import TheGuestLayout from '@/Layouts/TheGuest'
-import BaseButton from '@/Components/BaseButton'
+import AppButton from '@/Components/AppButton'
 
 export default {
   layout: TheGuestLayout,
 
   components: {
-    BaseButton,
+    AppButton,
   },
 
   props: {

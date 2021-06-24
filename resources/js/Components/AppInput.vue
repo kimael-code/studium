@@ -1,6 +1,6 @@
 <template>
   <input
-    class="input"
+    class="input is-rounded"
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
     ref="input"

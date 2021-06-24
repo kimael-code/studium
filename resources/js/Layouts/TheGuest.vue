@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import StudiumLogo from '@/Components/BaseLogo'
+import StudiumLogo from '@/Components/AppLogo'
 
 export default {
   components: {

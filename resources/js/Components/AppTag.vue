@@ -1,16 +1,11 @@
 <template>
-  <p class="help" :class="type">{{ message }}</p>
+  <span class="tag">{{ tag }}</span>
 </template>
 
 <script>
 export default {
   props: {
-    type: {
-      type: String,
-      default: '',
-    },
-
-    message: {
+    tag: {
       type: String,
       required: true,
     },

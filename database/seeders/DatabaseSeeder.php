@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            ConfigLogSeeder::class,
             BloodTypeSeeder::class,
             BondTypeSeeder::class,
             GenderSeeder::class,

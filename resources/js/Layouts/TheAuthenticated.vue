@@ -37,7 +37,7 @@
   </nav>
 
   <div class="columns is-centered">
-    <div class="column is-three-quarters">
+    <div class="column is-11">
 
       <!-- Page Heading -->
       <header v-if="$slots.header">
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import StudiumLogo from '@/Components/BaseLogo'
+import StudiumLogo from '@/Components/AppLogo'
 import NavbarMenuAdmin from '@/Layouts/TheAuthenticatedMenuForAdmin'
 import NavbarMenuDirector from '@/Layouts/TheAuthenticatedMenuForDirector'
 import NavbarMenuProfessor from '@/Layouts/TheAuthenticatedMenuForProfessor'

@@ -4,7 +4,7 @@
       <inertia-link
         class="navbar-item"
         :href="route('dashboard')"
-        :active="route().current('dashboard')"
+        :class="{'is-active': route().current('dashboard')}"
       >
         Tablero
       </inertia-link>
@@ -13,6 +13,13 @@
       <a class="navbar-item"> Directores </a>
       <a class="navbar-item"> Profesores </a>
       <a class="navbar-item"> Estudiantes </a>
+      <inertia-link
+        class="navbar-item"
+        :href="route('activities-logs')"
+        :class="{'is-active': route().current('activities-logs')}"
+      >
+        Historial de Actividades
+      </inertia-link>
     </div>
 
     <div class="navbar-end">

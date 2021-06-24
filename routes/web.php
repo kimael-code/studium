@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActivityLogController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,7 +16,9 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+// Home
+Route::get('/', function ()
+{
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => false,
@@ -24,8 +27,15 @@ Route::get('/', function () {
     ]);
 });
 
+// Dashboard
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Activities Logs
+Route::get('historial-de-actividades', [ActivityLogController::class, 'index'])
+    ->name('activities-logs')
+    ->middleware(['auth', 'verified']);
+
+// Auth
 require __DIR__.'/auth.php';
