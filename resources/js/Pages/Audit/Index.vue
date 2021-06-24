@@ -86,13 +86,13 @@
               >
                 <th>{{ activity.id }}</th>
                 <td>
-                  {{ activity.created_at }}
+                  {{ activity.timeSince }}
                 </td>
                 <td>
                   {{ activity.description }}
                 </td>
                 <td>
-                  {{ activity.user_id }}
+                  {{ activity.userDetails ? activity.userDetails.email : 'Usuario No Registrado' }}
                 </td>
                 <td>
                   {{ activity.method_type }}
@@ -104,7 +104,16 @@
                   {{ activity.ip_address }}
                 </td>
                 <td>
-                  {{ activity.user_agent }}
+                  <app-icon
+                    :icon="userAgent(activity.userAgentDetails).platformIcon"
+                  />
+                  <app-icon
+                    :icon="userAgent(activity.userAgentDetails).browserIcon"
+                  />
+                  <app-tag
+                    :tag="userAgent(activity.userAgentDetails).numVersion"
+                  />
+                  <app-tag :tag="activity.langDetails" />
                 </td>
               </tr>
 
@@ -126,9 +135,12 @@
 
 <script>
 import TheAuthenticatedLayout from '@/Layouts/TheAuthenticated'
+import AppIcon from '@/Components/AppIcon'
 import AppIconLeft from '@/Components/AppIconLeft'
+import AppIconText from '@/Components/AppIconText'
 import AppInput from '@/Components/AppInput'
 import AppPagination from '@/Components/AppPagination'
+import AppTag from '@/Components/AppTag'
 import pickBy from 'lodash/pickBy'
 import throttle from 'lodash/throttle'
 import mapValues from 'lodash/mapValues'
@@ -138,9 +150,12 @@ export default {
 
   components: {
     TheAuthenticatedLayout,
+    AppIcon,
     AppIconLeft,
+    AppIconText,
     AppInput,
     AppPagination,
+    AppTag,
   },
 
   props: {
@@ -169,7 +184,7 @@ export default {
       handler: throttle(function () {
         this.$inertia.get(this.route('activities-logs'), pickBy(this.form), {
           preserveState: true,
-          only: ['activities_log'],
+          //only: ['activities_log'],
         });
       }, 150),
       deep: true,
@@ -179,6 +194,90 @@ export default {
   methods: {
     reset() {
       this.form = mapValues(this.form, () => null);
+    },
+    userAgent(userAgentInfo) {
+      let platformIcon = 'fas fa-question-circle'
+      let browserIcon = 'fas fa-globe'
+
+      switch (userAgentInfo.platform) {
+        case 'Windows':
+          platformIcon = 'fab fa-windows';
+          break;
+
+        case 'iPad':
+          platformIcon = 'fas fa-tablet-alt';
+          break;
+
+        case 'iPhone':
+          platformIcon = 'fas fa-mobile';
+          break;
+
+        case 'Macintosh':
+          platformIcon = 'fab fa-apple';
+          break;
+
+        case 'Android':
+          platformIcon = 'fab fa-android';
+          break;
+
+        case 'BlackBerry':
+          platformIcon = 'fab fa-blackberry';
+          break;
+
+        case 'Unix':
+        case 'X11':
+        case 'Linux':
+          platformIcon = 'fab fa-linux fa-fw';
+          break;
+
+        case 'CrOS':
+          platformIcon = 'fab fa-chrome';
+          break;
+
+        default:
+          platformIcon;
+          break;
+      }
+
+      switch (userAgentInfo.browser) {
+        case 'Chrome':
+          browserIcon = 'fab fa-chrome fa-fw';
+          break;
+
+        case 'Firefox':
+          browserIcon = 'fab fa-firefox-browser';
+          break;
+
+        case 'Opera':
+          browserIcon = 'fab fa-opera';
+          break;
+
+        case 'Safari':
+          browserIcon = 'fab fa-safari';
+          break;
+
+        case 'Internet Explorer':
+          if (userAgentInfo.version < 38) {
+            browserIcon = 'fab fa-internet-explorer';
+          }
+          if (userAgentInfo.version >= 38 && userAgentInfo.version < 74) {
+            browserIcon = 'fab fa-edge-legacy';
+          }
+          if (userAgentInfo.version > 74) {
+            browserIcon = 'fab fa-edge';
+          }
+          break;
+
+        default:
+          browserIcon;
+          break;
+      }
+
+      return {
+        'platformIcon': platformIcon,
+        'browserIcon': browserIcon,
+        'numVersion': userAgentInfo.version,
+      }
     },
   },
 };

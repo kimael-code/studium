@@ -13,7 +13,7 @@
       >Siguiente</inertia-link
     >
     <ul class="pagination-list">
-      <template v-for="(link, key) in links" :key="key">
+      <template v-for="(link, key) in pages" :key="key">
         <li v-if="link.active">
           <inertia-link
             class="pagination-link is-current"
@@ -46,9 +46,13 @@ export default {
     prevpage: String,
   },
 
-  setup(props) {
-    props.links.pop();
-    props.links.shift();
+  computed: {
+    pages() {
+      this.links.pop()
+      this.links.shift()
+
+      return this.links
+    }
   },
 };
 </script>

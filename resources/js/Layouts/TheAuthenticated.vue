@@ -37,7 +37,7 @@
   </nav>
 
   <div class="columns is-centered">
-    <div class="column is-three-quarters">
+    <div class="column is-11">
 
       <!-- Page Heading -->
       <header v-if="$slots.header">
