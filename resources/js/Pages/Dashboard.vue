@@ -9,6 +9,7 @@
       </nav>
     </template>
 
+    <!--
     <section class="section">
       <h1 class="title">¡Bienvenido estimado usuario!</h1>
       <h2 class="subtitle">
@@ -23,15 +24,19 @@
         desarrollo estable.
       </p>
     </article>
+    -->
+    <dashboard-student />
   </the-authenticated-layout>
 </template>
 
 <script>
 import TheAuthenticatedLayout from '@/Layouts/TheAuthenticated'
+import DashboardStudent from '@/Pages/Dashboards/DashboardStudent'
 
 export default {
   components: {
     TheAuthenticatedLayout,
+    DashboardStudent,
   },
 
   props: {

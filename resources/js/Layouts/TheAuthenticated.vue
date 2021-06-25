@@ -47,10 +47,10 @@
       </header>
 
       <!-- Page Content -->
-      <main>
-        <div class="box mt-4">
+      <main class="mt-6">
+        <!-- <div class="box mt-4"> -->
           <slot />
-        </div>
+        <!-- </div> -->
       </main>
     </div>
   </div>
