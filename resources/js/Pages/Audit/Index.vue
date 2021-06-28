@@ -12,7 +12,7 @@
         </nav>
       </template>
 
-      <nav class="panel">
+      <nav class="panel box">
         <p class="panel-heading">Filtrar Historial</p>
         <p class="panel-tabs">
           <a class="is-active">Aplicar los siguientes Filtros</a>
@@ -61,7 +61,7 @@
         </div>
       </nav>
 
-      <section class="section">
+      <section class="section box">
         <div class="table-container">
           <table class="table is-fullwidth">
             <thead>
