@@ -11,13 +11,22 @@
                 alt="Logo"
               />
             </a>
-            <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span
+              class="navbar-burger"
+              data-target="navbarMenuHeroA"
+              @click="isOpen = !isOpen"
+              :class="{ 'is-active': isOpen }"
+            >
               <span></span>
               <span></span>
               <span></span>
             </span>
           </div>
-          <div id="navbarMenuHeroA" class="navbar-menu">
+          <div
+            id="navbarMenuHeroA"
+            class="navbar-menu"
+            :class="{ 'is-active': isOpen }"
+          >
             <div v-if="canLogin" class="navbar-end">
               <inertia-link
                 v-if="$page.props.auth.user"
@@ -98,6 +107,12 @@ export default {
     errors: Object,
     laravelVersion: String,
     phpVersion: String,
+  },
+
+  data() {
+    return {
+      isOpen: false,
+    }
   },
 }
 </script>
