@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+
+    /**
+     * La conexión usada a la base de datos.
+     *
+     * @var string
+     */
+    protected $connection = 'studium';
 }

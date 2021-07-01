@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityLogController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,9 +29,9 @@ Route::get('/', function ()
 });
 
 // Dashboard
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->name('dashboard')
+    ->middleware(['auth', 'verified']);
 
 // Activities Logs
 Route::get('historial-de-actividades', [ActivityLogController::class, 'index'])

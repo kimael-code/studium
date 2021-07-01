@@ -4,7 +4,7 @@
       <inertia-link
         class="navbar-item"
         :href="route('dashboard')"
-        :active="route().current('dashboard')"
+        :class="{'is-active': route().current('dashboard')}"
       >
         Tablero
       </inertia-link>

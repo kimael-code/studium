@@ -47,7 +47,7 @@
       </header>
 
       <!-- Page Content -->
-      <main class="mt-6">
+      <main class="mt-3">
         <!-- <div class="box mt-4"> -->
           <slot />
         <!-- </div> -->
