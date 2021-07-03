@@ -34,7 +34,7 @@ class LogVerified
         {
             $userRole = $event->user->role->name;
             $userId = $event->user->id;
-            $description = trans('ha sido verificado.');
+            $description = trans('se verificó');
 
             $data = [
                 'description' => $description,

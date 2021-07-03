@@ -37,7 +37,7 @@ class LogLockout
             $userRole = $user ? $user->role->name : null;
             $userId = $user ? $user->id : null;
 
-            $msg = 'bloqueado por demasiados intentos de inicio de sesión';
+            $msg = 'se bloqueó';
             $description = $user
                             ? $user->email . ' ' . trans($msg)
                             : $credential . ' ' . trans($msg);

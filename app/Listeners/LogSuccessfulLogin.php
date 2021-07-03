@@ -34,7 +34,7 @@ class LogSuccessfulLogin
         {
             $userRole = $event->user->role->name;
             $userId = $event->user->id;
-            $description = trans('inició sesión exitosamente');
+            $description = trans('inició sesión');
 
             $data = [
                 'description' => $description,

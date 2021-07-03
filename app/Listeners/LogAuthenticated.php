@@ -33,7 +33,7 @@ class LogAuthenticated
         if ($isLoggable)
         {
             $data = [
-                'description' => trans('inició sesión.'),
+                'description' => trans('inició sesión'),
                 'user_role'   => $event->user->role->name,
                 'user_id'     => $event->user->id,
             ];

@@ -34,7 +34,7 @@ class LogValidated
         {
             $userRole = $event->user->role->name;
             $userId = $event->user->id;
-            $description = trans('ha sido validado.');
+            $description = trans('se validó');
 
             $data = [
                 'description' => $description,

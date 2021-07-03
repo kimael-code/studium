@@ -39,7 +39,7 @@ class LogAuthenticationAttempt
             $userRole = $user ? $user->role->name : null;
             $userId = $user ? $user->id : null;
 
-            $msg = 'intenta iniciar sesión.';
+            $msg = 'intentó iniciar sesión';
             $description = $user
                             ? trans($msg)
                             : $credential . ' ' . trans($msg);

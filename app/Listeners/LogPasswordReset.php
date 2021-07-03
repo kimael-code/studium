@@ -34,7 +34,7 @@ class LogPasswordReset
         {
             $userRole = $event->user->role->name;
             $userId = $event->user->id;
-            $description = trans('restableció su contraseña.');
+            $description = trans('restableció su contraseña');
 
             $data = [
                 'description' => $description,

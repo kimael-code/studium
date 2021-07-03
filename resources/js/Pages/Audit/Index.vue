@@ -92,7 +92,7 @@
                   {{ activity.description }}
                 </td>
                 <td>
-                  {{ activity.userDetails ? activity.userDetails.email : 'Usuario No Registrado' }}
+                  {{ activity.userDetails ? activity.userDetails.email : 'no registrado' }}
                 </td>
                 <td>
                   {{ activity.method_type }}

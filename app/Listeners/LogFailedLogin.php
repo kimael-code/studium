@@ -37,7 +37,7 @@ class LogFailedLogin
             $userRole = $event->user ? $event->user->role->name : null;
             $userId = $event->user ? $event->user->id : null;
 
-            $msg = 'falló en iniciar sesión.';
+            $msg = 'falló en iniciar sesión';
             $description = $event->user
                             ? trans($msg)
                             : $credential . ' ' . trans($msg);

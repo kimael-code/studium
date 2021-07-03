@@ -34,7 +34,7 @@ class LogSuccessfulLogout
         {
             $userRole = $event->user->role->name;
             $userId = $event->user->id;
-            $description = trans('cerró sesión exitosamente');
+            $description = trans('cerró sesión');
 
             $data = [
                 'description' => $description,

@@ -36,7 +36,7 @@ class LogRegisteredUser
         {
             $userRole = $event->user->role->name;
             $userId = $event->user->id;
-            $description = trans('Usuario creado:') . ' ' . $event->user->email;
+            $description = trans('creó el usuario:') . ' ' . $event->user->email;
 
             $data = [
                 'description' => $description,
